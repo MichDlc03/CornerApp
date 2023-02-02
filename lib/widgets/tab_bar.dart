@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:liga_corner_app/pages/menu.dart';
 import 'package:liga_corner_app/pages/partidos_pages.dart';
 import 'package:liga_corner_app/pages/torneos_pages.dart';
 import 'package:liga_corner_app/pages/resultados_pages.dart';
+import 'package:liga_corner_app/pages/resultados.dart';
 
 class MyTabBar extends StatefulWidget {
   const MyTabBar({super.key});
@@ -88,9 +90,9 @@ class _MyTabBarState extends State with SingleTickerProviderStateMixin {
                 TabBarView(
                   controller: tabController,
                   children: const[
-                    PartidosPages(),
+                    Menu(),
                     TorneosPages(),
-                    ResultadosPages()
+                    Resultados()
                   ],)
                 ),
               ],
