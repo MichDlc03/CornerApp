@@ -12,23 +12,23 @@ class calendar extends StatefulWidget {
 class _calendarState extends State<calendar> {
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 380;
+    double baseWidth = 400;
     double fem = MediaQuery.of(context).size.width / baseWidth;
     double ffem = fem * 0.97;
 
     return Container(
-      margin: EdgeInsets.fromLTRB(22 * fem, 0 * fem, 15 * fem, 18 * fem),
+     margin: EdgeInsets.fromLTRB(5 * fem, 0 * fem, 0 * fem, 18 * fem),
       padding: EdgeInsets.fromLTRB(4 * fem, 26 * fem, 5 * fem, 36 * fem),
-      width: double.infinity,
+      width: 323 * fem,
       decoration: BoxDecoration(
-      color: Color(0xffffffff),
-      borderRadius: BorderRadius.circular(10 * fem),
-      boxShadow: [
-        BoxShadow(
-          color: Color(0x3f000000),
-          offset: Offset(0 * fem, 4 * fem),
-          blurRadius: 2 * fem,
-        ),
+        color: Color(0xffffffff),
+        borderRadius: BorderRadius.circular(10 * fem),
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x3f000000),
+            offset: Offset(0 * fem, 4 * fem),
+            blurRadius: 2 * fem,
+          ),
       ],
       ),
       child: Column(

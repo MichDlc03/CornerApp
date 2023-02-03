@@ -1,6 +1,5 @@
 // ignore_for_file: camel_case_types
 import 'package:flutter/material.dart';
-import 'package:liga_corner_app/widgets/logo.dart';
 import 'package:liga_corner_app/widgets/title.dart';
 import 'package:liga_corner_app/widgets/calendar_menu.dart';
 import 'package:liga_corner_app/widgets/card_vs.dart';
@@ -22,7 +21,6 @@ class Menu extends StatelessWidget {
           children:<Widget>[
             Column(
               children: const[
-                logo(),
                 title(),
                 calendar(),
                 card(),
