@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liga_corner_app/pages/notificaciones.dart';
+import 'package:liga_corner_app/pages/perfil.dart';
 import 'package:liga_corner_app/widgets/tab_bar.dart';
 
 class NavigationExample extends StatefulWidget {
@@ -66,7 +67,7 @@ class _NavigationExampleState extends State<NavigationExample> {
         Container(
           color: const Color(0xFFE8E8E8),
           alignment: Alignment.center,
-          child: const Text('Perfil'),
+          child: const PagePerfil(),
         ),
       ][currentPageIndex],
     );
