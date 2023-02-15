@@ -19,6 +19,7 @@ class _titleState extends State<title> {
 
     return Container(
       margin: EdgeInsets.fromLTRB(0 * fem, 0 * fem, 136 * fem, 17 * fem),
+      padding: const EdgeInsets.symmetric(horizontal: 10),
       child: Text(
         'Proximos partidos',
         style: SafeGoogleFont(

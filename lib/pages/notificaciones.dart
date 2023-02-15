@@ -59,6 +59,7 @@ class MyNotification extends StatelessWidget {
         itemCount: _Info.length,
         itemBuilder: ((context, index) {
           return ListTile(
+            selectedColor: Colors.white,
             onLongPress: () => showDialog<String>(
                 context: context,
                 builder: (BuildContext context) => AlertDialog(

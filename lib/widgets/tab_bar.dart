@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:liga_corner_app/pages/menu.dart';
-import 'package:liga_corner_app/pages/partidos_pages.dart';
-import 'package:liga_corner_app/pages/torneos_pages.dart';
-import 'package:liga_corner_app/pages/resultados_pages.dart';
 import 'package:liga_corner_app/pages/resultados.dart';
+import 'package:liga_corner_app/pages/torneos_pages.dart';
 
 class MyTabBar extends StatefulWidget {
   const MyTabBar({super.key});
@@ -21,6 +19,7 @@ class _MyTabBarState extends State with SingleTickerProviderStateMixin {
     tabController = TabController(length: 3, vsync: this);
     super.initState();
   }
+
   void despose() {
     tabController.dispose();
     super.dispose();
@@ -31,19 +30,20 @@ class _MyTabBarState extends State with SingleTickerProviderStateMixin {
     // ignore: todo
     // TODO: implement build
     return Scaffold(
-      backgroundColor:const Color(0xFFE8E8E8),
+      backgroundColor: const Color(0xFFE8E8E8),
       appBar: AppBar(
-        
         elevation: 0,
         toolbarHeight: 80,
-        title: Image.asset('images/logo.png', height: 90, width: 120,),
-        
+        title: Image.asset(
+          'images/logo.png',
+          height: 90,
+          width: 120,
+        ),
         backgroundColor: Colors.transparent,
-        
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal:20),
+          padding: const EdgeInsets.symmetric(horizontal: 20),
           child: SizedBox(
             height: MediaQuery.of(context).size.height,
             child: Column(
@@ -57,44 +57,39 @@ class _MyTabBarState extends State with SingleTickerProviderStateMixin {
                       borderRadius: BorderRadius.circular(5)),
                   child: Column(
                     children: [
-                    Padding(
-                      padding: const EdgeInsets.all(5), //
-                      child: TabBar(
-                      unselectedLabelColor:const Color(0xFF595959) ,
-                      labelColor:Colors.white, 
-                      indicatorColor: const Color(0xFFD9D9D9), 
-                      indicatorWeight: 2,
-                      indicator: BoxDecoration(
-                      color:  const Color(0xFF4ECF84),
-                      borderRadius: BorderRadius.circular(5),
+                      Padding(
+                        padding: const EdgeInsets.all(5), //
+                        child: TabBar(
+                          unselectedLabelColor: const Color(0xFF595959),
+                          labelColor: Colors.white,
+                          indicatorColor: const Color(0xFFD9D9D9),
+                          indicatorWeight: 2,
+                          indicator: BoxDecoration(
+                            color: const Color(0xFF4ECF84),
+                            borderRadius: BorderRadius.circular(5),
+                          ),
+                          controller: tabController,
+                          tabs: const [
+                            Tab(
+                              text: 'Partidos',
+                            ),
+                            Tab(
+                              text: 'Torneos',
+                            ),
+                            Tab(
+                              text: 'Resultados',
+                            ),
+                          ],
+                        ),
                       ),
-                      controller: tabController,
-                      tabs: const [
-                        Tab(
-                          text: 'Partidos',
-                        ),
-                        Tab(
-                          text: 'Torneos',
-                        ),
-                        Tab(
-                          text: 'Resultados',
-                        ),
-                      ],
-                      ),
-                    ),
-                  ],
+                    ],
                   ),
                 ),
                 Expanded(
-                child:
-                TabBarView(
+                    child: TabBarView(
                   controller: tabController,
-                  children: const[
-                    Menu(),
-                    TorneosPages(),
-                    Resultados()
-                  ],)
-                ),
+                  children: const [Menu(), TorneosPages(), Resultados()],
+                )),
               ],
             ),
           ),
