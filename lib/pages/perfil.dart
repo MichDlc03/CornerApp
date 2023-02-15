@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:liga_corner_app/widgets/config_Responsive.dart';
 
 class PagePerfil extends StatefulWidget {
   const PagePerfil({super.key});
@@ -44,7 +45,6 @@ class _PagePerfilState extends State<PagePerfil> {
               CardInfoProfile(),
               CardNotify(),
               CardLenguaje(),
-              CardPermisAndConditions(),
               Cardhelp(),
               CardLogOut()
             ],
@@ -60,34 +60,36 @@ class CardInfoProfile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 400;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    SizeConfig(context);
+
     return Container(
       decoration: const BoxDecoration(color: Color(0xFFE8E8E8)),
       margin: const EdgeInsets.all(8),
-      width: 360 * fem,
-      height: 48 * fem,
+      width: SizeConfig.screenWidth,
+      height: 70,
       child: Card(
-        shape:const RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
-          children: const <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              child: Icon(Icons.person, color: Color.fromARGB(188, 20, 237, 67)),
+          children: <Widget>[
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child:
+                  Icon(Icons.person, color: Color.fromARGB(188, 20, 237, 67)),
             ),
-            Expanded(
+            const Expanded(
               child: Text(
                 'Mi Informacion',
                 textAlign: TextAlign.justify,
               ),
             ),
-            Padding(
-              padding: EdgeInsets.all(5),
-              child: Icon(Icons.arrow_forward_ios),
+            IconButton(
+              icon:const Icon(Icons.arrow_forward_ios),
+              onPressed: () {
+                Navigator.pushNamed(context, '/settinsProfile');
+              },
             )
           ],
         ),
@@ -134,20 +136,13 @@ class CardProfileImage extends StatelessWidget {
                     ),
                     shape: BoxShape.circle),
               ),
-           const Padding(
-              padding:  EdgeInsets.all(10),
-              child:  Text(
-              'Leonel Messi',
-              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
-          ),
-            ),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Text(
-                'leomessi@gmail.com',
-                style: TextStyle(fontSize: 15, color: Colors.grey, fontWeight: FontWeight.w600),
+              const Padding(
+                padding: EdgeInsets.all(10),
+                child: Text(
+                  'Leonel Messi',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30),
                 ),
-            )
+              ),
             ],
           ),
         ],
@@ -161,23 +156,21 @@ class CardNotify extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 400;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    SizeConfig(context);
     return Container(
       decoration: const BoxDecoration(color: Color(0xFFE8E8E8)),
       margin: const EdgeInsets.all(8),
-      width: 360 * fem,
-      height: 48 * fem,
+      width: SizeConfig.screenWidth,
+      height: 70,
       child: Card(
-        shape:const RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: const <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 4),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: Icon(Icons.notifications,
                   color: Color.fromARGB(188, 20, 237, 67)),
             ),
@@ -187,7 +180,7 @@ class CardNotify extends StatelessWidget {
                 textAlign: TextAlign.justify,
               ),
             ),
-             SwitchOnOff(),
+            SwitchOnOff(),
           ],
         ),
       ),
@@ -228,22 +221,21 @@ class CardLenguaje extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 400;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    SizeConfig(context);
     return Container(
       decoration: const BoxDecoration(color: Color(0xFFE8E8E8)),
       margin: const EdgeInsets.all(8),
-      width: 360 * fem,
-      height: 48 * fem,
-      child: Card(shape:const RoundedRectangleBorder(
+      width: SizeConfig.screenWidth,
+      height: 70,
+      child: Card(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child:
                   Icon(Icons.language, color: Color.fromARGB(188, 20, 237, 67)),
             ),
@@ -264,70 +256,27 @@ class CardLenguaje extends StatelessWidget {
   }
 }
 
-class CardPermisAndConditions extends StatelessWidget {
-  const CardPermisAndConditions({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    double baseWidth = 400;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
-    return Container(
-      decoration: const BoxDecoration(color: Color(0xFFE8E8E8)),
-      margin: const EdgeInsets.all(8),
-      width: 360 * fem,
-      height: 48 * fem,
-      child: Card(
-        shape:const RoundedRectangleBorder(
-          borderRadius: BorderRadius.all(Radius.circular(12)),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: const <Widget>[
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              child:
-                  Icon(Icons.fact_check, color: Color.fromARGB(188, 20, 237, 67)),
-            ),
-            Expanded(
-              child: Text(
-                'Permisos y Condiciones',
-                textAlign: TextAlign.justify,
-              ),
-            ),
-            Padding(
-              padding: EdgeInsets.all(5),
-              child: Icon(Icons.arrow_forward_ios),
-            )
-          ],
-        ),
-      ),
-    );
-  }
-}
 
 class Cardhelp extends StatelessWidget {
   const Cardhelp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 400;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    SizeConfig(context);
     return Container(
       decoration: const BoxDecoration(color: Color(0xFFE8E8E8)),
       margin: const EdgeInsets.all(8),
-      width: 360 * fem,
-      height: 48 * fem,
+      width: SizeConfig.screenWidth,
+      height: 70,
       child: Card(
-        shape:const RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
+              padding: EdgeInsets.symmetric(horizontal: 10),
               child: Icon(Icons.help_outline,
                   color: Color.fromARGB(188, 20, 237, 67)),
             ),
@@ -353,24 +302,23 @@ class CardLogOut extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double baseWidth = 400;
-    double fem = MediaQuery.of(context).size.width / baseWidth;
-    double ffem = fem * 0.97;
+    SizeConfig(context);
     return Container(
       decoration: const BoxDecoration(color: Color(0xFFE8E8E8)),
       margin: const EdgeInsets.all(8),
-      width: 360 * fem,
-      height: 48 * fem,
+      width: SizeConfig.screenWidth,
+      height: 70,
       child: Card(
-        shape:const RoundedRectangleBorder(
+        shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(12)),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: const <Widget>[
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 5),
-              child: Icon(Icons.logout, color: Color.fromARGB(188, 20, 237, 67)),
+              padding: EdgeInsets.symmetric(horizontal: 10),
+              child:
+                  Icon(Icons.logout, color: Color.fromARGB(188, 20, 237, 67)),
             ),
             Expanded(
               child: Text(

@@ -73,6 +73,7 @@ flutter:
     - images/icon/icon.png
     - assets/page-1/images/vaicon-2-p61.png
     - images/user.jpg 
+    - images/settingIconProfile.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
