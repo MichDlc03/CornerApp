@@ -54,7 +54,7 @@ class _logoState extends State<logo> {
                                     fontSize: 36 * ffem,
                                     fontWeight: FontWeight.w800,
                                     height: 1.3625 * ffem / fem,
-                                    color: Color(0xff000000),
+                                    color: const Color(0xff000000),
                                   ),
                                 ),
                               ),
@@ -71,7 +71,7 @@ class _logoState extends State<logo> {
                                   decoration: BoxDecoration(
                                     borderRadius:
                                         BorderRadius.circular(15 * fem),
-                                    color: Color(0xff4ecf84),
+                                    color: const Color(0xff4ecf84),
                                   ),
                                 ),
                               ),

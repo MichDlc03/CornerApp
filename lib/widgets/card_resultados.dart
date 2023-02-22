@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors
 import 'package:flutter/material.dart';
+import 'package:liga_corner_app/pages/resumen_resultados_pages.dart';
 import 'package:liga_corner_app/utils.dart';
-
 
 class cardResultados extends StatefulWidget {
   const cardResultados({super.key});
@@ -31,14 +31,12 @@ class _cardResultadosState extends State<cardResultados> {
           ),
         ],
       ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(
-            height: 23*fem,
-          ),
-          Container(
-            width: double.infinity,
+      child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+        SizedBox(
+          height: 23 * fem,
+        ),
+        Container(
+          width: double.infinity,
           decoration: BoxDecoration(
             color: Color(0xfff9f9f9),
             borderRadius: BorderRadius.circular(5 * fem),
@@ -166,24 +164,27 @@ class _cardResultadosState extends State<cardResultados> {
                   ),
                 ),
                 child: Center(
-                  child: Text(
-                    'Detalles',
-                    style: SafeGoogleFont(
-                      'Nunito',
-                      fontSize: 15 * ffem,
-                      fontWeight: FontWeight.w700,
-                      height: 1.3625 * ffem / fem,
-                      color: Color(0xff595959),
+                  child: TextButton(
+                    onPressed: () {
+                      ResumenResultados();
+                    },
+                    child: Text(
+                      'Detalles',
+                      style: SafeGoogleFont(
+                        'Nunito',
+                        fontSize: 15 * ffem,
+                        fontWeight: FontWeight.w700,
+                        height: 1.3625 * ffem / fem,
+                        color: Color(0xff595959),
+                      ),
                     ),
                   ),
                 ),
               ),
             ],
           ),
-          ),
-        ]
-
         ),
+      ]),
     );
   }
 }

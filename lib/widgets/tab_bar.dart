@@ -54,7 +54,7 @@ class _MyTabBarState extends State with SingleTickerProviderStateMixin {
                   width: MediaQuery.of(context).size.height,
                   decoration: BoxDecoration(
                       color: const Color(0xFFD9D9D9),
-                      borderRadius: BorderRadius.circular(5)),
+                      borderRadius: BorderRadius.circular(10)),
                   child: Column(
                     children: [
                       Padding(
@@ -66,7 +66,7 @@ class _MyTabBarState extends State with SingleTickerProviderStateMixin {
                           indicatorWeight: 2,
                           indicator: BoxDecoration(
                             color: const Color(0xFF4ECF84),
-                            borderRadius: BorderRadius.circular(5),
+                            borderRadius: BorderRadius.circular(10),
                           ),
                           controller: tabController,
                           tabs: const [

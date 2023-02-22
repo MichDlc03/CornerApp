@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:liga_corner_app/pages/edit_profile.dart';
+import 'package:liga_corner_app/pages/resumen_resultados_pages.dart';
 import 'package:liga_corner_app/pages/settingsProfile.dart';
+import 'package:liga_corner_app/pages/vista_torneos.dart';
 import 'package:liga_corner_app/widgets/nav_bar.dart';
 
 void main() {
@@ -17,10 +19,12 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/settinsProfile': (context) => const SettingsProfilePage(),  
-        '/edid_Profile': (context) => const EdidProfile()
+        '/edid_Profile': (context) => const EdidProfile(),
+        // '/vista_torneo': (context) => const VistasTorneo(torneo: null,),
+        '/resumenPartidos' :(context) => const ResumenResultados()
       },
       debugShowCheckedModeBanner: false,
-      home:const  NavigationExample(), 
+      home:const NavigationExample(), 
 
     );
   }

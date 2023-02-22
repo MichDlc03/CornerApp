@@ -1,94 +1,79 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:flutter/material.dart';
+import 'package:liga_corner_app/utils.dart';
 
 class CardTorneos extends StatelessWidget {
   final String UrlImage;
   final String name;
   final String city;
-  final String numberplayers;
+  //final String numberplayers;
   const CardTorneos({
     Key? key,
     required this.UrlImage,
     required this.name,
     required this.city,
-    required this.numberplayers
+    // required this.numberplayers}
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    double baseWidth = 400;
+    double fem = MediaQuery.of(context).size.width / baseWidth;
+    double ffem = fem * 0.97;
     return Card(
-
-      margin: const EdgeInsets.all(10),
-      color: const Color(0xFF4ECF84),
+      elevation: 10,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      margin: const EdgeInsets.all(5),
+      color: const Color(0xFFFFFFFF),
       clipBehavior: Clip.hardEdge,
       child: InkWell(
-        splashColor: Color.fromARGB(255, 255, 255, 255),
+        // splashColor: const Color.fromARGB(255, 255, 255, 255),
         onTap: () {},
         child: Column(
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Container(
+                  child: Expanded(
                     child: Image.network(
                       UrlImage,
                     ),
-                
+                  ),
                 ),
               ),
             ),
-          
-            // Container(
-            //   child: Column(
-            //     children: [
-            //       Text(name, textAlign: TextAlign.start,),
-            //     ],
-            //   ),
-              
-            // )
+
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
               child: Container(
                 child: Row(
                   children: [
                     Container(
-                      child:const Text(
+                      child: Text(
                         'Nombre: ',
-                        style:TextStyle(
-                            color: Color(0xFF595959), fontWeight: FontWeight.bold),
+                        style: SafeGoogleFont(
+                          'Nunito',
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                    const SizedBox(height: 2,),
-                    Container(
-                      child: Text(
-                        name,
-                        style: const TextStyle(
-                            color: Colors.black,),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
-              child: Container(
-                child: Row(
-                  children: [
-                    Container(
-                      child:const Text(
-                        'Ciudad: ',
-                        style:TextStyle(
-                            color: Color(0xFF595959), fontWeight: FontWeight.bold),
-                      ),
+                    const SizedBox(
+                      height: 2,
                     ),
                     Container(
-                      child: Text(
-                        city,
-                        style: const TextStyle(
-                            color: Colors.black,),
+                      child: Expanded(
+                        child: Text(
+                          name,
+                          overflow: TextOverflow.ellipsis,
+                          style: SafeGoogleFont('Nunito',
+                              color: const Color(0XFf595959)),
+                          // style: const TextStyle(
+                          //   color: Colors.black,
+                          //),
+                        ),
                       ),
                     ),
                   ],
@@ -97,54 +82,106 @@ class CardTorneos extends StatelessWidget {
             ),
 
             Padding(
-              padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
               child: Container(
                 child: Row(
                   children: [
-                    const SizedBox(height: 2,),
-                    Container(
-                      child:const Text(
-                        'Número de equipos: ',
-                        style:TextStyle(
-                            color: Color(0xFF595959), fontWeight: FontWeight.bold),
-                      ),
-                    ),
                     Container(
                       child: Text(
-                        numberplayers,
-                        style: const TextStyle(
-                            color: Colors.black,),
+                        'Ciudad: ',
+                        style: SafeGoogleFont(
+                          'Nunito',
+                          color: Colors.black,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 2,
+                    ),
+                    Container(
+                      child: Expanded(
+                        child: Text(
+                          city,
+                          overflow: TextOverflow.ellipsis,
+                          style: SafeGoogleFont('Nunito',
+                              color: const Color(0xff595959)),
+                          // style: const TextStyle(
+                          //   color: Colors.black,
+                          //),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
             ),
-          //  const SizedBox(height: 5),
-          //   Container(
-          //     child: Column(
-          //       children: [
-          //         Text(
-          //           city,
-          //           style: const TextStyle(
-          //               color: Color(0xFF595959), fontWeight: FontWeight.bold),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
-          //   const SizedBox(height: 5),
-          //   Container(
-              
-          //     child: Column(
-          //       children: [
-          //         Text(
-          //           numberplayers,
-          //           style: const TextStyle(
-          //               color: Color(0xFF595959), fontWeight: FontWeight.bold),
-          //         ),
-          //       ],
-          //     ),
-          //   ),
+            Container(
+              color: Color(0xFF4ECF84),
+              child: TextButton(
+                onPressed: () {},
+                child: Center(
+                    child: Text(
+                  'Detalles',
+                  style: SafeGoogleFont('Nunito',
+                      color: Colors.white, fontWeight: FontWeight.bold),
+                )),
+              ),
+            )
+
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(vertical: 5, horizontal: 5),
+            //   child: Container(
+            //     child: Row(
+            //       children: [
+            //         const SizedBox(
+            //           height: 2,
+            //         ),
+            //         Container(
+            //           child: Text(
+            //             'N° judadores: ',
+            //             style: SafeGoogleFont('Nunito',
+            //                 color: const Color(0xFF000000),
+            //                 fontWeight: FontWeight.bold),
+            //           ),
+            //         ),
+            //         Container(
+            //           child: Text(
+            //             numberplayers,
+            //             style: const TextStyle(
+            //               color: Color(0XFF595959),
+            //             ),
+            //           ),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            // ),
+            //  const SizedBox(height: 5),
+            //   Container(
+            //     child: Column(
+            //       children: [
+            //         Text(
+            //           city,
+            //           style: const TextStyle(
+            //               color: Color(0xFF595959), fontWeight: FontWeight.bold),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
+            //   const SizedBox(height: 5),
+            //   Container(
+
+            //     child: Column(
+            //       children: [
+            //         Text(
+            //           numberplayers,
+            //           style: const TextStyle(
+            //               color: Color(0xFF595959), fontWeight: FontWeight.bold),
+            //         ),
+            //       ],
+            //     ),
+            //   ),
           ],
         ),
       ),
