@@ -13,7 +13,7 @@ class VistasTorneo extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Center(
-            child: Text(git
+            child: Text(
           '${torneo?.sName}',
           style: SafeGoogleFont('Nunito', color: Colors.white),
         )),
