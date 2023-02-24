@@ -23,8 +23,7 @@ class Menu extends StatelessWidget {
               children: const[
                 title(),
                 calendar(),
-                card(),
-                card()
+                card(tEmblem: '', tCity: '', tName: '',)
               ],
             ),
           ],

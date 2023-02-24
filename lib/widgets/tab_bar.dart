@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:liga_corner_app/pages/menu.dart';
-import 'package:liga_corner_app/pages/partidos_api.dart';
+import 'package:liga_corner_app/pages/partidos_pages.dart';
 import 'package:liga_corner_app/pages/resultados.dart';
 import 'package:liga_corner_app/pages/torneos_pages.dart';
 
@@ -89,7 +88,7 @@ class _MyTabBarState extends State with SingleTickerProviderStateMixin {
                 Expanded(
                     child: TabBarView(
                   controller: tabController,
-                  children: const [PartidosPage(), TorneosPages(), Resultados()],
+                  children: const [PartidosPages(partidos: null,), TorneosPages(), Resultados()],
                 )),
               ],
             ),

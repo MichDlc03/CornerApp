@@ -1,177 +1,33 @@
 import 'package:flutter/material.dart';
+import '../dtos/responses/requests/partidos_response_dto.dart';
+import '../widgets/card_vs.dart';
 
 class PartidosPages extends StatelessWidget {
-  const PartidosPages({super.key});
-
+  final PartidosResponseDto? partidos;
+  const PartidosPages({super.key, required this.partidos});
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return GridView.count(
-      padding: const EdgeInsets.symmetric(vertical: 30),
-      crossAxisSpacing: 20,
-      mainAxisSpacing: 20,
-      crossAxisCount: 2,
-      children: <Widget>[
-        Container(
-          padding: const EdgeInsets.all(5),
-          decoration:BoxDecoration(
-            borderRadius:BorderRadius.circular(10),
-            color: const Color(0xFF4ECF84),
-            ),
-            
-          child: Column(
-          
-          children:[
-            Container (
-              padding: const EdgeInsets.all(5),
-              child: const Text('Champions',
-              style: TextStyle(
-              color: Color(0xFF595959),
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              ),
-              ),
-            ),
-            Container(
-                padding: const EdgeInsets.all(2),
-                child: Image.asset('images/barca.jpg'),
-              )
-            
-          ],
-          ),        
-          ),
-      Container(
-      
-          padding: const EdgeInsets.all(5),
-          decoration:BoxDecoration(
-            borderRadius:BorderRadius.circular(10),
-            color: const Color(0xFF4ECF84),
-            ),
-          child: Column(
-          children: [
-          Container (
-              padding: const EdgeInsets.all(5),
-              child: const Text('Champions',
-              style: TextStyle(
-              color: Color(0xFF595959),
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              ),
-              ),
-            ),
-            Container(
-                padding: const EdgeInsets.all(2),
-                child: Image.asset('images/barca.jpg'),
-              )
-        
-          ],
-          ),        
-          ),
-        Container(
-          padding: const EdgeInsets.all(5),
-          decoration:BoxDecoration(
-            borderRadius:BorderRadius.circular(10),
-            color: const Color(0xFF4ECF84),
-            ),
-            child: Column(
-            children:[
-              Container (
-                padding: const EdgeInsets.all(5),
-                child: const Text('Champions',
-                style: TextStyle(
-                color: Color(0xFF595959),
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                ),
-                ),
-              ),
-              Container(
-                padding: const EdgeInsets.all(2),
-                child: Image.asset('images/barca.jpg'),
-              )
-            ],
-          ),
+    return Scaffold(
+      backgroundColor: const Color(0xffE8E8E8),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2),
+          itemCount: partidos?.teams.length,
+          itemBuilder: (BuildContext context, int index) {
+            final team = partidos?.teams[index];
+            final tCity = team?.tCity;
+            final tEmblem = team?.tEmblem;
+            return card(
+              tEmblem: '$tEmblem',
+              tName: '${team?.tName}',
+              tCity: '$tCity',
+              //numberplayers: '${team?.}'
+            );
+          },
         ),
-        Container(
-          padding: const EdgeInsets.all(5),
-          decoration:BoxDecoration(
-            borderRadius:BorderRadius.circular(10),
-            color:const Color(0xFF4ECF84),
-            ),
-          child: Column(
-            
-            children:[
-              
-              Container (
-                padding: const EdgeInsets.all(5),
-                child: const Text('Champions',
-                style: TextStyle(
-                color: Color(0xFF595959),
-                fontSize: 14,
-                fontWeight: FontWeight.bold,
-                ),
-                ),
-                
-              ),
-              Container(
-                padding: const EdgeInsets.all(2),
-                child: Image.asset('images/barca.jpg'),
-              )
-              
-            ],
-          ),
-        ),
-        Container(
-          padding: const EdgeInsets.all(5),
-          decoration:BoxDecoration(
-            borderRadius:BorderRadius.circular(10),
-            color: const Color(0xFF4ECF84),
-            ),
-          child: Column(
-          children:[
-            Container (
-              padding: const EdgeInsets.all(5),
-              child: const Text('Champions',
-              style: TextStyle(
-              color: Color(0xFF595959),
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              ),
-              ),
-            ),
-            Container(
-                padding: const EdgeInsets.all(2),
-                child: Image.asset('images/barca.jpg'),
-              )
-          ],
-          ),        
-          ),
-        Container(
-          padding: const EdgeInsets.all(5),
-          decoration:BoxDecoration(
-            borderRadius:BorderRadius.circular(10),
-            color: const Color(0xFF4ECF84),
-            ),
-          child: Column(
-          children:[
-            Container (
-              padding: const EdgeInsets.all(5),
-              child: const Text('Champions',
-              style: TextStyle(
-              color: Color(0xFF595959),
-              fontSize: 14,
-              fontWeight: FontWeight.bold,
-              ),
-              ),
-            ),
-            Container(
-                padding: const EdgeInsets.all(2),
-                child: Image.asset('images/barca.jpg'),
-              )
-          ],
-          ),        
-          ),
-      ],
+      ),
     );
   }
 }
