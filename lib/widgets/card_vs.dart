@@ -4,7 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:liga_corner_app/utils.dart';
 
 class card extends StatefulWidget {
-  const card({super.key});
+  // ignore: non_constant_identifier_names
+  final String UrlImage;
+  final String name;
+  final String city;
+
+  const card({
+    Key? key,
+      // ignore: non_constant_identifier_names
+      required this.UrlImage,
+      required this.name,
+      required this.city,
+    }): super(key: key);
 
   @override
   State<card> createState() => _cardState();
@@ -110,7 +121,7 @@ class _cardState extends State<card> {
                                   width: 46 * fem,
                                   height: 20 * fem,
                                   child: Text(
-                                    'Club A',
+                                    'Club :',
                                     style: SafeGoogleFont(
                                       'Nunito',
                                       fontSize: 14 * ffem,
@@ -130,7 +141,7 @@ class _cardState extends State<card> {
                                   width: 81 * fem,
                                   height: 17 * fem,
                                   child: Text(
-                                    'Mérida, Mérida',
+                                    'city: ',
                                     style: SafeGoogleFont(
                                       'Nunito',
                                       fontSize: 12 * ffem,
@@ -158,7 +169,7 @@ class _cardState extends State<card> {
                                   width: 45 * fem,
                                   height: 20 * fem,
                                   child: Text(
-                                    'Club B',
+                                    'Club: ',
                                     style: SafeGoogleFont(
                                       'Nunito',
                                       fontSize: 14 * ffem,
@@ -178,7 +189,7 @@ class _cardState extends State<card> {
                                   width: 81 * fem,
                                   height: 17 * fem,
                                   child: Text(
-                                    'Mérida, Mérida',
+                                    'city',
                                     style: SafeGoogleFont(
                                       'Nunito',
                                       fontSize: 12 * ffem,
