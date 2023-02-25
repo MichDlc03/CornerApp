@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:liga_corner_app/pages/edit_profile.dart';
 import 'package:liga_corner_app/pages/resumen_resultados_pages.dart';
 import 'package:liga_corner_app/pages/settingsProfile.dart';
-import 'package:liga_corner_app/pages/vista_torneos.dart';
 import 'package:liga_corner_app/widgets/nav_bar.dart';
 
 void main() {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:liga_corner_app/dtos/providers/torneo_provider.dart';
 import 'package:liga_corner_app/pages/vista_torneos.dart';
-import 'package:liga_corner_app/utils.dart';
 import 'package:provider/provider.dart';
 
 class TorneosPages extends StatelessWidget {
@@ -57,9 +56,9 @@ class TorneosPages extends StatelessWidget {
                                         children: [
                                           Text(
                                             '${torneo?.sName}',
-                                            style: SafeGoogleFont('Nunito',
+                                           /* style: SafeGoogleFont('Nunito',
                                                 color: const Color(0xFFFFFFFF),
-                                                fontWeight: FontWeight.bold),
+                                                fontWeight: FontWeight.bold),*/
                                           ),
                                         ],
                                       ),

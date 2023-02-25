@@ -64,11 +64,6 @@ class _NavigationExampleState extends State<NavigationExample> {
           child: MyNotification(),
           
         ),
-        Container(
-          color: const Color(0xFFE8E8E8),
-          alignment: Alignment.center,
-          child: const PagePerfil(),
-        ),
       ][currentPageIndex],
     );
   }

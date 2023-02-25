@@ -29,7 +29,8 @@ class CardTorneos extends StatelessWidget {
       clipBehavior: Clip.hardEdge,
       child: InkWell(
         // splashColor: const Color.fromARGB(255, 255, 255, 255),
-        onTap: () {},
+        onTap: () {
+        },
         child: Column(
           children: [
             Expanded(
@@ -44,7 +45,6 @@ class CardTorneos extends StatelessWidget {
                 ),
               ),
             ),
-
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
               child: Container(
