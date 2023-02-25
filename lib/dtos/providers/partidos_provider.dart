@@ -25,11 +25,7 @@ class PartidosProvider extends ChangeNotifier {
       _partidos = data.map((e) => PartidosResponseDto.fromMap(e)).toList();
       isLoading = false;
       notifyListeners();
-      //logger.d('Total:  ${json['data']}');
-      //logger.d('Respuesta: ${response.body}');
     } else {
-      // If the server did not return a 200 OK response,
-      // then throw an exception.
       throw Exception('Failed to load album');
     }
   }

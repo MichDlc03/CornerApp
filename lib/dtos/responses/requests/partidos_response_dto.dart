@@ -1,98 +1,116 @@
-// To parse this JSON data, do
-//
-//     final torneoResponseDto = torneoResponseDtoFromMap(jsonString);
 
 import 'package:meta/meta.dart';
 import 'dart:convert';
 
-PartidosResponseDto partidosResponseDtoFromMap(String str) =>
-    PartidosResponseDto.fromMap(json.decode(str));
+PartidosResponseDto partidosResponseDtoFromJson(String str) =>
+    PartidosResponseDto.fromJson(json.decode(str));
 
-String partidosResponseDtoToMap(PartidosResponseDto data) =>
-    json.encode(data.toMap());
+String partidosResponseDtoToJson(PartidosResponseDto data) => json.encode(data.toJson());
 
 class PartidosResponseDto {
   PartidosResponseDto({
     required this.id,
-    required this.mid,
-    required this.team1id,
-    required this.team2id,
+    required this.mId,
+    required this.team1Id,
+    required this.team2Id,
     required this.score1,
     required this.score2,
-    required this.matchdescr,
+    required this.matchDescr,
     required this.published,
-    required this.isextra,
-    required this.mplayed,
-    required this.mdate,
-    required this.mtime,
-    required this.mlocation,
+    required this.isExtra,
+    required this.mPlayed,
+    required this.mDate,
+    required this.mTime,
+    required this.mLocation,
     required this.refereeId,
     required this.bonus1,
     required this.bonus2,
-    required this.logo,
-    required this.teams,
+    required this.team1,
+    required this.team2,
   });
 
   final int id;
-  final String mid;
-  final String team1id;
-  final String team2id;
+  final String mId;
+  final String team1Id;
+  final String team2Id;
   final String score1;
   final String score2;
-  final String matchdescr;
+  final String matchDescr;
   final String published;
-  final String isextra;
-  final String mplayed;
-  final String mdate;
-  final String mtime;
-  final String mlocation;
+  final String isExtra;
+  final String mPlayed;
+  final DateTime mDate;
+  final String mTime;
+  final String mLocation;
   final String refereeId;
   final String bonus1;
   final String bonus2;
-  final dynamic logo;
-  final List<Team> teams;
+  final Team team1;
+  final Team team2;
 
-  factory PartidosResponseDto.fromMap(Map<String, dynamic> json) =>
-      PartidosResponseDto(
+  factory PartidosResponseDto.fromMap(Map<String, dynamic> json) => PartidosResponseDto(
         id: json["id"],
-        mid: json["m_id"],
-        team1id: json["team1_id"],
-        team2id: json["team2_id"],
+        mId: json["m_id"],
+        team1Id: json["team1_id"],
+        team2Id: json["team2_id"],
         score1: json["score1"],
         score2: json["score2"],
-        matchdescr: json["match_descr"],
+        matchDescr: json["match_descr"],
         published: json["published"],
-        isextra: json["is_extra"],
-        mplayed: json["m_played"],
-        mdate: json["m_date"],
-        mtime: json["m_time"],
-        mlocation: json["m_location"],
+        isExtra: json["is_extra"],
+        mPlayed: json["m_played"],
+        mDate: DateTime.parse(json["m_date"]),
+        mTime: json["m_time"],
+        mLocation: json["m_location"],
         refereeId: json["refereeId"],
         bonus1: json["bonus1"],
         bonus2: json["bonus2"],
-        logo: json["logo"],
-        teams: List<Team>.from(json["teams"].map((x) => Team.fromMap(x))),
+        team1: Team.fromJson(json["team1"]),
+        team2: Team.fromJson(json["team2"]),
       );
 
-  Map<String, dynamic> toMap() => {
+  factory PartidosResponseDto.fromJson(Map<String, dynamic> json) =>
+      PartidosResponseDto(
+        id: json["id"],
+        mId: json["m_id"],
+        team1Id: json["team1_id"],
+        team2Id: json["team2_id"],
+        score1: json["score1"],
+        score2: json["score2"],
+        matchDescr: json["match_descr"],
+        published: json["published"],
+        isExtra: json["is_extra"],
+        mPlayed: json["m_played"],
+        mDate: DateTime.parse(json["m_date"]),
+        mTime: json["m_time"],
+        mLocation: json["m_location"],
+        refereeId: json["refereeId"],
+        bonus1: json["bonus1"],
+        bonus2: json["bonus2"],
+        team1: Team.fromJson(json["team1"]),
+        team2: Team.fromJson(json["team2"]),
+      );
+
+  Map<String, dynamic> toJson() => {
         "id": id,
-        "m_id": mid,
-        "team1_id": team1id,
-        "team2_id": team2id,
+        "m_id": mId,
+        "team1_id": team1Id,
+        "team2_id": team2Id,
         "score1": score1,
         "score2": score2,
-        "match_descr": matchdescr,
+        "match_descr": matchDescr,
         "published": published,
-        "is_extra": isextra,
-        "m_played": mplayed,
-        "m_date": mdate,
-        "m_time": mtime,
-        "m_location": mlocation,
+        "is_extra": isExtra,
+        "m_played": mPlayed,
+        "m_date":
+            "${mDate.year.toString().padLeft(4, '0')}-${mDate.month.toString().padLeft(2, '0')}-${mDate.day.toString().padLeft(2, '0')}",
+        "m_time": mTime,
+        "m_location": mLocation,
         "refereeId": refereeId,
         "bonus1": bonus1,
         "bonus2": bonus2,
-        "logo": logo,
-        "teams": List<dynamic>.from(teams.map((x) => x.toMap())),
+        "team1": team1.toJson(),
+        "team2": team2.toJson(),
       };
 }
 
@@ -115,7 +133,8 @@ class Team {
   final String tEmblem;
   final String tCity;
 
-  factory Team.fromMap(Map<String, dynamic> json) => Team(
+  factory Team.fromMap(Map<String, dynamic> json) =>
+      Team(
         id: json["id"],
         tName: json["t_name"],
         tDescr: json["t_descr"],
@@ -125,7 +144,17 @@ class Team {
         tCity: json["t_city"],
       );
 
-  Map<String, dynamic> toMap() => {
+  factory Team.fromJson(Map<String, dynamic> json) => Team(
+        id: json["id"],
+        tName: json["t_name"],
+        tDescr: json["t_descr"],
+        tYteam: json["t_yteam"],
+        defImg: json["def_img"],
+        tEmblem: json["t_emblem"],
+        tCity: json["t_city"],
+      );
+
+  Map<String, dynamic> toJson() => {
         "id": id,
         "t_name": tName,
         "t_descr": tDescr,

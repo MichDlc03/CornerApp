@@ -5,16 +5,16 @@ import 'package:liga_corner_app/utils.dart';
 
 class card extends StatefulWidget {
   // ignore: non_constant_identifier_names
-  final String tEmblem;
-  final String tName;
-  final String tCity;
+  final String UrlImage;
+  final String name;
+  final String city;
 
   const card({
     Key? key,
       // ignore: non_constant_identifier_names
-      required this.tEmblem,
-      required this.tName,
-      required this.tCity,
+      required this.UrlImage,
+      required this.name,
+      required this.city,
     }): super(key: key);
 
   @override
@@ -141,7 +141,7 @@ class _cardState extends State<card> {
                                   width: 81 * fem,
                                   height: 17 * fem,
                                   child: Text(
-                                    'tCity: ',
+                                    'city: ',
                                     style: SafeGoogleFont(
                                       'Nunito',
                                       fontSize: 12 * ffem,
@@ -189,7 +189,7 @@ class _cardState extends State<card> {
                                   width: 81 * fem,
                                   height: 17 * fem,
                                   child: Text(
-                                    'tCity',
+                                    'city',
                                     style: SafeGoogleFont(
                                       'Nunito',
                                       fontSize: 12 * ffem,
